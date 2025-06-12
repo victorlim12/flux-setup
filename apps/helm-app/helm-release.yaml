@@ -2,7 +2,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: nginx
-  namespace: vcluster
 spec:
   interval: 5m
   chart:
@@ -16,7 +15,6 @@ spec:
     secretRef:
       name: vcluster-mock-config
       key: config
-  targetNamespace: nginx
   values:
     service:
       type: ClusterIP
