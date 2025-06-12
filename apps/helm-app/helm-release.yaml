@@ -14,8 +14,8 @@ spec:
         name: bitnami
   kubeConfig:
     secretRef:
-      name: vc-config-vcluster
-      key: config.yaml
+      name: vcluster-mock-config
+      key: config
   targetNamespace: nginx
   install:
     createNamespace: true
