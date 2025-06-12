@@ -2,6 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: nginx
+  namespace: vcluster  # This is where the HelmRelease resource will be created
 spec:
   interval: 5m
   chart:
@@ -15,6 +16,9 @@ spec:
     secretRef:
       name: vcluster-mock-config
       key: config
+  targetNamespace: nginx  # This is where the nginx chart will be installed
+  install:
+    createNamespace: true  # This will create the target namespace if it doesn't exist
   values:
     service:
       type: ClusterIP
