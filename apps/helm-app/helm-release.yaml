@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: nginx
-      version: "13.x"
+      version: "13.x"  # Specify a version compatible with your cluster
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -16,8 +16,6 @@ spec:
       name: vcluster-mock-config
       key: config
   targetNamespace: nginx
-  install:
-    createNamespace: true
   values:
     service:
       type: ClusterIP
